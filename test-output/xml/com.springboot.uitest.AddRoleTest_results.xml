@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="新增角色"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="39.505">
+  <properties />
+  
+  
+            <testcase name="addRole" time="18.033" classname="com.springboot.uitest.AddRoleTest" />
+                <testcase name="start" time="4.325" classname="com.springboot.uitest.AddRoleTest" />
+                <testcase name="end" time="2.777" classname="com.springboot.uitest.AddRoleTest" />
+                <testcase name="login" time="14.370" classname="com.springboot.uitest.AddRoleTest" />
+      
+</testsuite>

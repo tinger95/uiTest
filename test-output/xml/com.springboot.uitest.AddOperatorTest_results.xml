@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="新增操作员"
+           tests="6"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="77.344">
+  <properties />
+  
+  
+            <testcase name="start" time="3.871" classname="com.springboot.uitest.AddOperatorTest" />
+                <testcase name="addOperator" time="29.245" classname="com.springboot.uitest.AddOperatorTest" />
+                <testcase name="operatorLogin" time="21.979" classname="com.springboot.uitest.AddOperatorTest" />
+                <testcase name="logout" time="5.193" classname="com.springboot.uitest.AddOperatorTest" />
+                <testcase name="login" time="14.341" classname="com.springboot.uitest.AddOperatorTest" />
+                <testcase name="end" time="2.715" classname="com.springboot.uitest.AddOperatorTest" />
+      
+</testsuite>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="新增租户"
+           tests="7"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="77.120">
+  <properties />
+  
+  
+            <testcase name="login" time="12.412" classname="com.springboot.uitest.AddLesseeTest" />
+                <testcase name="lesseeLogin" time="12.291" classname="com.springboot.uitest.AddLesseeTest" />
+                <testcase name="logout" time="3.198" classname="com.springboot.uitest.AddLesseeTest" />
+                <testcase name="addLessee" time="30.177" classname="com.springboot.uitest.AddLesseeTest" />
+                <testcase name="end" time="2.743" classname="com.springboot.uitest.AddLesseeTest" />
+                <testcase name="lesseeAdminLogin" time="9.622" classname="com.springboot.uitest.AddLesseeTest" />
+                <testcase name="start" time="6.677" classname="com.springboot.uitest.AddLesseeTest" />
+      
+</testsuite>

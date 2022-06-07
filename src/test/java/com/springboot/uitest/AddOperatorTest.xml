@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="OperatorTestSuite">
+    <test verbose="1" preserve-order="true" name="新增操作员">
+        <!--<parameter name="lesseeName" value="测试租户20220225"/>-->
+        <!--<parameter name="userName" value="admin"/>-->
+        <!--<parameter name="passWord" value="1qaz2wsx"/>-->
+
+        <classes>
+            <class name="com.springboot.uitest.AddOperatorTest">
+                <methods>
+                    <!--<include name="addOperator"/>-->
+                    <!--<include name="logout"/>-->
+                    <!--<include name="operatorLogin"/>-->
+                    <!--<include name="end"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

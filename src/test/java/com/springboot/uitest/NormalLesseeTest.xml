@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="集成测试新建租户及后续流程">
+    <suite-files>
+        <suite-file path="AddLesseeTest.xml"/>
+        <suite-file path="AddRoleTest.xml"/>
+        <suite-file path="AddOperatorTest.xml"/>
+    </suite-files>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+</suite>
