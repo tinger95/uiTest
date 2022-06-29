@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SearchOperatorTestSuite">
+    <test verbose="1" preserve-order="true" name="条件查询操作员列表">
+        <parameter name="searchType" value="姓名"/>
+        <parameter name="searchValue" value="吴婷婷"/>
+        <classes>
+            <class name="com.springboot.uitest.OperatorTest.SearchOperatorTest">
+            </class>
+        </classes>
+    </test>
+</suite>

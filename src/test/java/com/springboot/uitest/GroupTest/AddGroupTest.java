@@ -1,4 +1,4 @@
-package com.springboot.uitest;
+package com.springboot.uitest.GroupTest;
 
 import com.springboot.bean.Browser;
 import com.springboot.data.Lessee;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootTest(classes = {BrowserServiceImpl.class, Browser.class, LoginServiceImpl.class, LesseeServiceImpl.class, OperatorServiceImpl.class, SystemAdmin.class, Lessee.class})
-public class AddLesseeTest extends AbstractTestNGSpringContextTests {
+public class AddGroupTest extends AbstractTestNGSpringContextTests {
     public WebDriver driver;
     @Autowired
     BrowserService browserService;
@@ -89,20 +89,20 @@ public class AddLesseeTest extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 超级管理员新增租户
+     * 新增群组
      *
      * @throws InterruptedException
      * @throws IOException
      */
     @Test(priority = 3)
-    public void addLessee() throws InterruptedException, IOException {
+    public void addGroup() throws InterruptedException, IOException {
         //进入运营管理-租户管理页面，显示租户列表
-        pageList.getList(driver, "运营管理", "租户管理");
-
-        //新增租户：测试租户yyyyMMdd，密码为返回值
-        tempPWD = lesseeService.addLessee(driver);
-        System.out.println(tempPWD);
-        Thread.sleep(5000);
+//        pageList.getList(driver, "运营管理", "租户管理");
+//
+//        //新增租户：测试租户yyyyMMdd，密码为返回值
+//        tempPWD = lesseeService.addLessee(driver);
+//        System.out.println(tempPWD);
+//        Thread.sleep(5000);
     }
 
     /**

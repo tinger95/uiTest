@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @PropertySource(value = "classpath:operatorInfo.properties", encoding = "UTF-8")
-public class Opetator {
+public class Operator {
     @Value("${operator.loginName}")
     public String loginName;
     @Value("${operator.name}")

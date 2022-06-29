@@ -7,7 +7,7 @@
         <!--<parameter name="passWord" value="1qaz2wsx"/>-->
 
         <classes>
-            <class name="com.springboot.uitest.AddOperatorTest">
+            <class name="com.springboot.uitest.OperatorTest.AddOperatorTest">
                 <methods>
                     <!--<include name="addOperator"/>-->
                     <!--<include name="logout"/>-->

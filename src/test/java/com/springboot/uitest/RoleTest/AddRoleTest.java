@@ -1,4 +1,4 @@
-package com.springboot.uitest;
+package com.springboot.uitest.RoleTest;
 
 import com.springboot.bean.Browser;
 import com.springboot.data.Lessee;

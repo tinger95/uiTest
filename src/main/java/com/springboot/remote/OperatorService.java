@@ -1,11 +1,10 @@
 package com.springboot.remote;
 
-import com.springboot.data.Opetator;
+import com.springboot.data.Operator;
 import org.openqa.selenium.WebDriver;
-
-import java.util.Map;
 
 public interface OperatorService {
     public void updatePassWord(WebDriver driver) throws InterruptedException;
-    public String addOperator(WebDriver driver, Opetator operatorInfo) throws InterruptedException;
+    public String addOperator(WebDriver driver, Operator operatorInfo) throws InterruptedException;
+    public void searchOperator(WebDriver driver, String searchType, String searchValue) throws InterruptedException;
 }

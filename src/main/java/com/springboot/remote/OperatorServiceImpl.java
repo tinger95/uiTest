@@ -1,15 +1,12 @@
 package com.springboot.remote;
 
-import com.springboot.data.Opetator;
+import com.springboot.data.Operator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class OperatorServiceImpl implements OperatorService{
@@ -40,7 +37,7 @@ public class OperatorServiceImpl implements OperatorService{
     }
 
     @Override
-    public String addOperator(WebDriver driver, Opetator operatorInfo) throws InterruptedException {
+    public String addOperator(WebDriver driver, Operator operatorInfo) throws InterruptedException {
         //点击新增
         WebElement appendButton = driver.findElement(By.xpath("//*[@class='operate-wrapper']//span[text()='新增']/.."));
         appendButton.click();
@@ -95,5 +92,29 @@ public class OperatorServiceImpl implements OperatorService{
         Thread.sleep(1000);
 
         return passWord;
+    }
+
+    @Override
+    public void searchOperator(WebDriver driver, String searchType, String searchValue) throws InterruptedException {
+        //点击请选择
+        WebElement role = driver.findElement(By.xpath("//*[@role='combobox']//div[text()='请选择']"));
+        role.click();
+        Thread.sleep(1000);
+        //查询类型选择
+        List<WebElement> searchSelect = driver.findElements(By.xpath("//*[@class='ant-select-dropdown-content']//li"));
+        for (WebElement element:searchSelect){
+            if (element.getText().equals(searchType)){
+                element.click();
+            }
+        }
+        Thread.sleep(1000);
+        //输入查询信息
+        WebElement searchInput = driver.findElement(By.xpath("//*[@class='ant-form-item-children']//input"));
+        searchInput.sendKeys(searchValue);
+        Thread.sleep(1000);
+        //点击查询
+        WebElement submit = driver.findElement(By.xpath("//*[@class='table-page-search-submitButtons']/button[@class='ant-btn ant-btn-primary']"));
+        submit.click();
+        Thread.sleep(1000);
     }
 }

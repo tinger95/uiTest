@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AddGroupTestSuite">
+    <test verbose="1" preserve-order="true" name="新增群组">
+        <!--<parameter name="lesseeName" value="系统租户"/>-->
+        <!--<parameter name="userName" value="admin"/>-->
+        <!--<parameter name="passWord" value="123456"/>-->
+        <classes>
+            <class name="com.springboot.uitest.GroupTest.AddGroupTest">
+            </class>
+        </classes>
+    </test>
+</suite>

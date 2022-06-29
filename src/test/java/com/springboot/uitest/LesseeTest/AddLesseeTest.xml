@@ -2,11 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="LesseeTestSuite">
     <test verbose="1" preserve-order="true" name="新增租户">
-        <!--<parameter name="lesseeName" value="系统租户"/>-->
-        <!--<parameter name="userName" value="admin"/>-->
-        <!--<parameter name="passWord" value="123456"/>-->
         <classes>
-            <class name="com.springboot.uitest.AddLesseeTest">
+            <class name="com.springboot.uitest.LesseeTest.AddLesseeTest">
                 <!--<methods>-->
                     <!--<include name="start"/>-->
                     <!--<include name="login"/>-->

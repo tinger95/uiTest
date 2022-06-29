@@ -7,7 +7,7 @@
         <!--<parameter name="passWord" value="1qaz2wsx"/>-->
 
         <classes>
-            <class name="com.springboot.uitest.AddRoleTest">
+            <class name="com.springboot.uitest.RoleTest.AddRoleTest">
                 <!--<methods>-->
                     <!--<include name="addRole"/>-->
                 <!--</methods>-->

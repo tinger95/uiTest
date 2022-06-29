@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SearchLesseeTestSuite">
+    <test verbose="1" preserve-order="true" name="条件查询租户列表">
+        <parameter name="lesseeName" value="测试租户"/>
+
+        <classes>
+            <class name="com.springboot.uitest.LesseeTest.SearchLesseeTest">
+            </class>
+        </classes>
+    </test>
+</suite>

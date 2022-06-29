@@ -1,14 +1,13 @@
-package com.springboot.uitest;
+package com.springboot.uitest.OperatorTest;
 
 import com.springboot.bean.Browser;
 import com.springboot.data.Lessee;
-import com.springboot.data.Opetator;
+import com.springboot.data.Operator;
 import com.springboot.remote.*;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -17,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-@SpringBootTest(classes = {BrowserServiceImpl.class, Browser.class, LoginServiceImpl.class, LesseeServiceImpl.class, OperatorServiceImpl.class, Lessee.class, Opetator.class})
+@SpringBootTest(classes = {BrowserServiceImpl.class, Browser.class, LoginServiceImpl.class, LesseeServiceImpl.class, OperatorServiceImpl.class, Lessee.class, Operator.class})
 public class AddOperatorTest extends AbstractTestNGSpringContextTests {
     public WebDriver driver;
     @Autowired
@@ -31,7 +30,7 @@ public class AddOperatorTest extends AbstractTestNGSpringContextTests {
     @Autowired
     Lessee lessee;
     @Autowired
-    Opetator opetator;
+    Operator operator;
 
     private String tempPWD;
 
@@ -100,7 +99,7 @@ public class AddOperatorTest extends AbstractTestNGSpringContextTests {
         pageList.getList(driver, "系统管理", "操作员管理");
 
         //新增操作员，密码为返回值
-        tempPWD = operatorService.addOperator(driver, opetator);
+        tempPWD = operatorService.addOperator(driver, operator);
         System.out.println(tempPWD);
         Thread.sleep(5000);
     }
@@ -115,7 +114,7 @@ public class AddOperatorTest extends AbstractTestNGSpringContextTests {
 
     @Test(priority = 5, dependsOnMethods = "logout")
     public void operatorLogin() throws InterruptedException, IOException {
-        loginService.login(driver, lessee.name, opetator.loginName, tempPWD);
+        loginService.login(driver, lessee.name, operator.loginName, tempPWD);
         Thread.sleep(3000);
         //首次使用初始密码登录，修改初始密码为1qaz2wsx
         operatorService.updatePassWord(driver);
