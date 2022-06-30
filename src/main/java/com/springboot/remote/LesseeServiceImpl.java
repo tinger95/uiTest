@@ -20,6 +20,7 @@ public class LesseeServiceImpl implements LesseeService {
 
     /**
      * 新增租户
+     *
      * @param driver
      * @return
      * @throws InterruptedException
@@ -104,6 +105,7 @@ public class LesseeServiceImpl implements LesseeService {
 
     /**
      * 查询租户
+     *
      * @param driver
      * @param lesseeName
      * @throws InterruptedException
@@ -122,6 +124,7 @@ public class LesseeServiceImpl implements LesseeService {
 
     /**
      * 查看租户信息
+     *
      * @param driver
      * @param lesseeName
      * @throws InterruptedException
@@ -141,6 +144,7 @@ public class LesseeServiceImpl implements LesseeService {
 
     /**
      * 编辑租户信息
+     *
      * @param driver
      * @param lesseeName
      * @param lesseeNewName
@@ -186,6 +190,7 @@ public class LesseeServiceImpl implements LesseeService {
 
     /**
      * 注销指定租户
+     *
      * @param driver
      * @param lesseeName
      * @throws InterruptedException
@@ -202,5 +207,40 @@ public class LesseeServiceImpl implements LesseeService {
         WebElement submit = driver.findElement(By.xpath("//*[@class='ant-modal-confirm-btns']//button[@class='ant-btn ant-btn-danger']"));
         submit.click();
         Thread.sleep(2000);
+    }
+
+    /**
+     * 重置租户管理员密码
+     *
+     * @param driver
+     * @param lesseeName
+     * @throws InterruptedException
+     */
+    @Override
+    public String updatePwdLessee(WebDriver driver, String lesseeName) throws InterruptedException {
+        //定位到表单指定编辑按钮
+        WebElement row = driver.findElement(By.xpath("//*[@class='ant-table-body']//tr/td[@title='" + lesseeName + "']/.."));
+        String dataRowKey = row.getAttribute("data-row-key");
+        WebElement edit = driver.findElement(By.xpath("//*[@class='ant-table-fixed-right']//tr[@data-row-key='" + dataRowKey + "']//i[@title='编辑']"));
+        edit.click();
+        Thread.sleep(2000);
+        WebElement updatePwd = driver.findElement(By.xpath("//a[@title='点击重置密码']"));
+        updatePwd.click();
+        Thread.sleep(1000);
+        //确定重置密码
+        WebElement submit = driver.findElement(By.xpath("//*[@class='ant-modal-confirm-btns']//button[@class='ant-btn ant-btn-danger']"));
+        submit.click();
+        Thread.sleep(2000);
+        //复制密码
+        WebElement adminMessage = driver.findElement(By.xpath("//*[@class='ant-modal-confirm-content']//span[4]"));
+        String passWord = adminMessage.getText();
+        WebElement copy = driver.findElement(By.xpath("//*[@class='ant-modal-confirm-btns']//button[@class='ant-btn ant-btn-danger']"));
+        copy.click();
+        Thread.sleep(2000);
+        //关闭窗口
+        WebElement close = driver.findElement(By.xpath("//*[@class='ant-modal-content']//span[@class='ant-modal-close-x']/i"));
+        close.click();
+        Thread.sleep(2000);
+        return passWord;
     }
 }

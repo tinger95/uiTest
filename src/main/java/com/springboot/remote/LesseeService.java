@@ -12,4 +12,6 @@ public interface LesseeService {
     public void checkLessee(WebDriver driver, String lesseeName) throws InterruptedException;
     public void editLessee(WebDriver driver, String lesseeName, String lesseeNewName, String remark, String logo) throws InterruptedException, IOException;
     public void deleteLessee(WebDriver driver, String lesseeName) throws InterruptedException;
+    public String updatePwdLessee(WebDriver driver, String lesseeName) throws InterruptedException;
+
 }

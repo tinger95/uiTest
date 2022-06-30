@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="DeleteLesseeTestSuite">
-    <test verbose="1" preserve-order="true" name="注销租户">
+<suite name="UpdatePwdLesseeTestSuite">
+    <test verbose="1" preserve-order="true" name="重置租户管理员密码">
         <parameter name="lesseeName" value="测试租户20220630"/>
 
         <classes>
-            <class name="com.springboot.uitest.LesseeTest.DeleteLesseeTest">
+            <class name="com.springboot.uitest.LesseeTest.UpdatePwdLesseeTest">
             </class>
         </classes>
     </test>
