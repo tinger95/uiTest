@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="EditLesseeTestSuite">
+    <test verbose="1" preserve-order="true" name="编辑租户信息">
+        <classes>
+            <class name="com.springboot.uitest.OpenTest"/>
+            <class name="com.springboot.uitest.LesseeTest.EditLesseeTest"/>
+        </classes>
+    </test>
+</suite>

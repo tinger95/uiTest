@@ -34,7 +34,7 @@ public class LoginServiceImpl implements LoginService{
         passWordElement.sendKeys(passWord);
         Thread.sleep(1000);
 
-        //修改gateway配置文件false，不显示验证码跳过验证码
+        //修改gateway配置文件portal_captcha_enable=false，不显示验证码跳过验证码
         WebElement captcha = driver.findElement(By.id("captcha"));
         captcha.sendKeys("123456");
         Thread.sleep(1000);

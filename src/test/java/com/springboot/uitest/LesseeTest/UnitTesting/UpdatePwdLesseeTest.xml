@@ -2,11 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="UpdatePwdLesseeTestSuite">
     <test verbose="1" preserve-order="true" name="重置租户管理员密码">
-        <parameter name="lesseeName" value="测试租户20220630"/>
+        <parameter name="lesseeName" value="测试租户20220706"/>
+        <parameter name="passWord" value="1qaz2wsx"/>
 
         <classes>
-            <class name="com.springboot.uitest.LesseeTest.UpdatePwdLesseeTest">
-            </class>
+            <class name="com.springboot.uitest.OpenTest"/>
+            <class name="com.springboot.uitest.LesseeTest.UpdatePwdLesseeTest"/>
         </classes>
     </test>
 </suite>

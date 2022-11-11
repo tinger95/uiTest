@@ -1,10 +1,11 @@
 package com.springboot.uitest.LesseeTest;
 
-import com.springboot.bean.Browser;
+import com.springboot.common.PageList;
+import com.springboot.data.Browser;
 import com.springboot.data.Lessee;
 import com.springboot.data.SystemAdmin;
 import com.springboot.remote.*;
-import org.openqa.selenium.WebDriver;
+import com.springboot.uitest.OpenTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -15,7 +16,6 @@ import java.io.IOException;
 
 @SpringBootTest(classes = {BrowserServiceImpl.class, Browser.class, LoginServiceImpl.class, LesseeServiceImpl.class, OperatorServiceImpl.class, SystemAdmin.class, Lessee.class})
 public class UpdatePwdLesseeTest extends AbstractTestNGSpringContextTests {
-    public WebDriver driver;
     @Autowired
     BrowserService browserService;
     @Autowired
@@ -30,16 +30,17 @@ public class UpdatePwdLesseeTest extends AbstractTestNGSpringContextTests {
     PageList pageList = new PageList();
     private String tempPWD;
 
-    @Test(priority = 1)
-    public void start() {
-        driver = browserService.startChrome();
-    }
-
     @Test(priority = 2)
     public void login() throws InterruptedException, IOException {
         //登录系统
-        loginService.login(driver, systemAdmin.lesseeName, systemAdmin.userName, systemAdmin.passWord);
+        loginService.login(OpenTest.driver, systemAdmin.getLesseeName(), systemAdmin.getUserName(), systemAdmin.getPassWord());
         Thread.sleep(5000);
+    }
+
+    @Test(priority = 3)
+    public void changeMenu() throws InterruptedException {
+        //进入运营管理-租户管理页面，显示租户列表
+        pageList.getList(OpenTest.driver, "运营管理", "租户管理");
     }
 
     /**
@@ -48,13 +49,11 @@ public class UpdatePwdLesseeTest extends AbstractTestNGSpringContextTests {
      * @throws InterruptedException
      * @throws IOException
      */
-    @Test(priority = 3)
+    @Test(priority = 4)
     @Parameters({"lesseeName"})
     public void updatePwdLessee(String lesseeName) throws InterruptedException, IOException {
-        //进入运营管理-租户管理页面，显示租户列表
-        pageList.getList(driver, "运营管理", "租户管理");
         //重置租户管理员密码
-        tempPWD = lesseeService.updatePwdLessee(driver, lesseeName);
+        tempPWD = lesseeService.updatePwdLessee(OpenTest.driver, lesseeName);
         Thread.sleep(5000);
     }
 
@@ -64,9 +63,9 @@ public class UpdatePwdLesseeTest extends AbstractTestNGSpringContextTests {
      * @throws InterruptedException
      * @throws IOException
      */
-    @Test(priority = 4, dependsOnMethods = "updatePwdLessee")
+    @Test(priority = 5)
     public void logout() throws InterruptedException, IOException {
-        loginService.logout(driver);
+        loginService.logout(OpenTest.driver);
         Thread.sleep(1000);
     }
 
@@ -76,11 +75,11 @@ public class UpdatePwdLesseeTest extends AbstractTestNGSpringContextTests {
      * @throws InterruptedException
      * @throws IOException
      */
-    @Test(priority = 5, dependsOnMethods = "logout")
+    @Test(priority = 6)
     @Parameters({"lesseeName"})
     public void lesseeLogin(String lesseeName) throws InterruptedException, IOException {
         //登录系统
-        loginService.login(driver, lesseeName, "admin", tempPWD);
+        loginService.login(OpenTest.driver, lesseeName, "admin", tempPWD);
         Thread.sleep(3000);
     }
 
@@ -90,16 +89,11 @@ public class UpdatePwdLesseeTest extends AbstractTestNGSpringContextTests {
      * @throws InterruptedException
      * @throws IOException
      */
-    @Test(priority = 6, dependsOnMethods = "lesseeLogin")
-    public void updatePwd() throws InterruptedException, IOException {
+    @Test(priority = 6)
+    @Parameters({"passWord"})
+    public void updatePwd(String passWord) throws InterruptedException, IOException {
         //首次使用初始密码登录，修改初始密码为1qaz2wsx
-        operatorService.updatePassWord(driver);
+        operatorService.updatePassWord(OpenTest.driver, passWord);
         Thread.sleep(3000);
     }
-
-    @Test(priority = 10, dependsOnMethods = "updatePwd")
-    public void end() {
-        browserService.quitDriver();
-    }
-
 }

@@ -1,6 +1,7 @@
 package com.springboot.uitest.GroupTest;
 
-import com.springboot.bean.Browser;
+import com.springboot.common.PageList;
+import com.springboot.data.Browser;
 import com.springboot.data.Lessee;
 import com.springboot.data.SystemAdmin;
 import com.springboot.remote.*;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -84,7 +86,7 @@ public class AddGroupTest extends AbstractTestNGSpringContextTests {
     @Test(priority = 2)
     public void login() throws InterruptedException, IOException {
         //登录系统
-        loginService.login(driver, systemAdmin.lesseeName, systemAdmin.userName, systemAdmin.passWord);
+        loginService.login(driver, systemAdmin.getLesseeName(), systemAdmin.getUserName(), systemAdmin.getPassWord());
         Thread.sleep(3000);
     }
 
@@ -126,7 +128,7 @@ public class AddGroupTest extends AbstractTestNGSpringContextTests {
     @Test(priority = 5, dependsOnMethods = "logout")
     public void lesseeLogin() throws InterruptedException, IOException {
         //登录系统
-        loginService.login(driver, lessee.name, "admin", tempPWD);
+        loginService.login(driver, lessee.getName(), "admin", tempPWD);
         Thread.sleep(3000);
     }
 
@@ -137,9 +139,10 @@ public class AddGroupTest extends AbstractTestNGSpringContextTests {
      * @throws IOException
      */
     @Test(priority = 6, dependsOnMethods = "lesseeLogin")
-    public void lesseeAdminLogin() throws InterruptedException, IOException {
+    @Parameters({"passWord"})
+    public void lesseeAdminLogin(String passWord) throws InterruptedException, IOException {
         //首次使用初始密码登录，修改初始密码为1qaz2wsx
-        operatorService.updatePassWord(driver);
+        operatorService.updatePassWord(driver, passWord);
         Thread.sleep(3000);
     }
 

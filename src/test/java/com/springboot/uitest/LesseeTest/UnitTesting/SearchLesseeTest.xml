@@ -3,7 +3,6 @@
 <suite name="SearchLesseeTestSuite">
     <test verbose="1" preserve-order="true" name="条件查询租户列表">
         <parameter name="lesseeName" value="测试租户"/>
-
         <classes>
             <class name="com.springboot.uitest.LesseeTest.SearchLesseeTest">
             </class>

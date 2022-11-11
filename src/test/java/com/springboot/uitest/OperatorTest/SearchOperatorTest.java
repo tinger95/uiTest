@@ -1,6 +1,7 @@
 package com.springboot.uitest.OperatorTest;
 
-import com.springboot.bean.Browser;
+import com.springboot.common.PageList;
+import com.springboot.data.Browser;
 import com.springboot.data.SystemAdmin;
 import com.springboot.remote.*;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +35,7 @@ public class SearchOperatorTest extends AbstractTestNGSpringContextTests {
     @Test(priority = 2)
     public void login() throws InterruptedException, IOException {
         //登录系统
-        loginService.login(driver, systemAdmin.lesseeName, systemAdmin.userName, systemAdmin.passWord);
+        loginService.login(driver, systemAdmin.getLesseeName(), systemAdmin.getUserName(), systemAdmin.getPassWord());
         Thread.sleep(5000);
     }
 

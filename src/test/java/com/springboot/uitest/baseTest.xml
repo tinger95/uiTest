@@ -3,7 +3,8 @@
 <suite name="baseTestSuite" parallel="classes" thread-count="1">
     <test verbose="1" preserve-order="true" name="BaseTest">
         <classes>
-            <class name="com.springboot.uitest.BaseTest"/>
+            <class name="com.springboot.uitest.OpenTest"/>
+            <class name="com.springboot.uitest.CloseTest" />
         </classes>
     </test>
 </suite>

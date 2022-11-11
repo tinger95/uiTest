@@ -8,11 +8,9 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @PropertySource(value = "classpath:data.properties", encoding = "UTF-8")
-public class SystemAdmin {
-    @Value("${systemAdmin.lesseeName}")
-    private String lesseeName;
-    @Value("${systemAdmin.userName}")
-    private String userName;
-    @Value("${systemAdmin.passWord}")
-    private String passWord;
+public class Role {
+    @Value("${role.name}")
+    private String name;
+    @Value("${role.remark}")
+    private String remark;
 }

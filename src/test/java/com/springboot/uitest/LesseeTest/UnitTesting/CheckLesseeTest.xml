@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="CheckLesseeTestSuite">
+    <test verbose="1" preserve-order="true" name="查看租户信息">
+        <parameter name="lesseeName" value="系统租户"/>
+        <parameter name="userName" value="admin"/>
+        <parameter name="passWord" value="123456"/>
+        <classes>
+            <class name="com.springboot.uitest.OpenTest"/>
+            <class name="com.springboot.uitest.LesseeTest.CheckLesseeTest"/>
+        </classes>
+    </test>
+</suite>

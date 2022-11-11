@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="RoleTestSuite">
-    <test verbose="1" preserve-order="true" name="新增角色">
-        <!--<parameter name="lesseeName" value="测试租户20220225"/>-->
-        <!--<parameter name="userName" value="admin"/>-->
-        <!--<parameter name="passWord" value="1qaz2wsx"/>-->
-
+    <test name="角色管理单元测试-新增角色">
         <classes>
-            <class name="com.springboot.uitest.RoleTest.AddRoleTest">
-                <!--<methods>-->
-                    <!--<include name="addRole"/>-->
-                <!--</methods>-->
-            </class>
+            <class name="com.springboot.uitest.OpenTest"/>
+            <class name="com.springboot.uitest.RoleTest.AddRoleTest"/>
+            <class name="com.springboot.uitest.CloseTest"/>
         </classes>
     </test>
 </suite>

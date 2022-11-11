@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
 <suite name="集成测试系统租户新建操作员相关流程">
-    <suite-files>
-        <suite-file path="RoleTest/AddRoleTest.xml"/>
-        <suite-file path="OperatorTest/AddOperatorTest.xml"/>
-    </suite-files>
+    <!--<suite-files>-->
+    <!--<suite-file path="RoleTest/AddRoleTest.xml"/>-->
+    <!--<suite-file path="OperatorTest/AddOperatorTest.xml"/>-->
+    <!--</suite-files>-->
+    <test name="打开浏览器">
+        <classes>
+            <class name="com.springboot.uitest.OpenTest"/>
+        </classes>
+    </test>
+    <test name="角色管理-新增角色">
+        <classes>
+            <class name="com.springboot.uitest.RoleTest.AddRoleTest">
+                <methods>
+                    <include name="loginSystem"/>
+                    <include name="addRole"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="操作员管理-新增操作员">
+        <classes>
+            <class name="com.springboot.uitest.OperatorTest.AddOperatorTest">
+                <methods>
+                    <include name="addOperator"/>
+                    <include name="logout"/>
+                    <include name="operatorLogin_System"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="关闭浏览器">
+        <classes>
+            <class name="com.springboot.uitest.CloseTest"/>
+        </classes>
+    </test>
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>

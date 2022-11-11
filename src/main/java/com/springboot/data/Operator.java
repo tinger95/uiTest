@@ -1,26 +1,28 @@
 package com.springboot.data;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+@Data
 @Component
-@PropertySource(value = "classpath:operatorInfo.properties", encoding = "UTF-8")
+@PropertySource(value = "classpath:data.properties", encoding = "UTF-8")
 public class Operator {
     @Value("${operator.loginName}")
-    public String loginName;
+    private String loginName;
     @Value("${operator.name}")
-    public String name;
+    private String name;
     @Value("${operator.code}")
-    public String code;
+    private String code;
     @Value("${operator.phone}")
-    public String phone;
+    private String phone;
     @Value("${operator.email}")
-    public String email;
+    private String email;
     @Value("${operator.role}")
-    public String role;
+    private String role;
     @Value("${operator.remark}")
-    public String remark;
+    private String remark;
     @Value("${operator.passWord}")
-    public String passWord;
+    private String passWord;
 }

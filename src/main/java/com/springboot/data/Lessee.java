@@ -1,24 +1,29 @@
 package com.springboot.data;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+@Data
 @Component
-@PropertySource(value = "classpath:lessee.properties", encoding = "UTF-8")
+@PropertySource(value = "classpath:data.properties", encoding = "UTF-8")
 public class Lessee {
-    @Value("${lessee.name}")
-    public String name;
+    @Value(value = "${lessee.name}")
+    private String name;
     @Value("${lessee.remark}")
-    public String remark;
+    private String remark;
     @Value("${lessee.logo}")
-    public String logo;
+    private String logo;
     @Value("${lessee.adminName}")
-    public String adminName;
+    private String adminName;
     @Value("${lessee.telephone}")
-    public String telephone;
+    private String telephone;
     @Value("${lessee.email}")
-    public String email;
+    private String email;
     @Value("${lessee.passWord}")
-    public String passWord;
+    private String passWord;
+    @Value("${lessee.serviceName}")
+    private String serviceName;
+
 }

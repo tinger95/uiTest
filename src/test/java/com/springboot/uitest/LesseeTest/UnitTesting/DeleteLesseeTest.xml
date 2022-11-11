@@ -3,7 +3,6 @@
 <suite name="DeleteLesseeTestSuite">
     <test verbose="1" preserve-order="true" name="注销租户">
         <parameter name="lesseeName" value="测试租户20220630"/>
-
         <classes>
             <class name="com.springboot.uitest.LesseeTest.DeleteLesseeTest">
             </class>
